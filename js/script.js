@@ -81,6 +81,7 @@ const lightElements = document.querySelectorAll('.light');
 const darkElements = document.querySelectorAll('.dark');
 const buttonElements = document.querySelectorAll('.switchButton');
 const textElements = document.querySelectorAll('.text-light');
+const nightIcon = document.querySelector('.moon-icon');
 
 
 toggleButton.addEventListener('click', function () {
@@ -116,4 +117,16 @@ toggleButton.addEventListener('click', function () {
             element.classList.remove('darkText');
         }
     });
+
+    if (isOn) {
+        nightIcon.classList.remove('fas');
+        nightIcon.classList.remove('fa-moon');
+        nightIcon.classList.add('fa-regular');
+        nightIcon.classList.add('fa-sun');
+    } else {
+        nightIcon.classList.remove('fa-regular');
+        nightIcon.classList.remove('fa-sun');
+        nightIcon.classList.add('fas');
+        nightIcon.classList.add('fa-moon');
+    }
 });

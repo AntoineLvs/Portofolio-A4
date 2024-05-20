@@ -65,7 +65,8 @@ header {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding-left: 25px;
+    padding-left: 45px;
+    font-size: 20px;
 }
 
 .fa-moon {
@@ -385,7 +386,9 @@ h2 {
 
 #buttonSavan,
 #buttonBoa,
-#buttonGS {
+#buttonGS,
+#buttonElsenTable,
+#buttonElsenMap {
     width: 600px;
     height: 400px;
     background-size: contain;
@@ -398,7 +401,8 @@ h2 {
 
 .textSavan,
 .textBoa,
-.textGS {
+.textGS,
+.textElsen {
     position: absolute;
     width: 400px;
     height: 400px;
@@ -415,7 +419,8 @@ h2 {
 
 .textSavan p,
 .textBoa p,
-.textGS p {
+.textGS p,
+.textElsen p {
     color: rgb(75, 85, 99);
 
 }
@@ -437,11 +442,45 @@ h2 {
 
 .savan,
 .boa,
-.giantSentinel {
+.giantSentinel,
+.elsen {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+}
+
+#buttonElsenMap {
+    background-image: url(../img/ElsenMap.png);
+}
+
+#buttonElsenTable {
+    background-image: url(../img/ElsenTable.png);
+}
+
+.elsen:hover #buttonElsenMap {
+    transform: translateX(350px);
+    /* Move right */
+    filter: grayscale(100%);
+
+}
+
+.elsen:hover #buttonElsenTable {
+    transform: translateX(-350px);
+    /* Move left */
+    filter: grayscale(100%);
+
+}
+
+.elsen:hover .textElsen {
+    opacity: 1;
+}
+
 
 #buttonBoa {
     background-image: url(../img/boa.png);
@@ -569,6 +608,10 @@ html {
         height: 400px;
 
     }
+
+    .button-container {
+        width: 800px;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -578,6 +621,53 @@ html {
 
 }
 
+
+@media screen and (max-width: 650px) {
+    .button-container {
+        flex-direction: column;
+        /* Stack buttons vertically */
+        width: 100%;
+        /* Adjust width to fit container */
+        height: auto;
+        /* Allow height to adjust based on content */
+    }
+
+    #buttonElsenTable,
+    #buttonElsenMap {
+        position: relative;
+        /* Change to relative positioning for stacking */
+        width: 100%;
+        /* Full width within the container */
+        height: auto;
+        /* Adjust height to maintain aspect ratio */
+        transform: none;
+        /* Remove transform effects */
+        margin-bottom: 20px;
+        /* Add some space between buttons */
+    }
+
+    .textElsen {
+        position: static;
+        /* Change to static positioning */
+        width: auto;
+        /* Adjust width to fit content */
+        height: auto;
+        /* Adjust height to fit content */
+        left: auto;
+        /* Reset left positioning */
+        opacity: 1;
+        /* Ensure text is visible */
+        margin: 0 auto;
+        /* Center the text block */
+        padding: 20px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .button-container:hover+.textElsen {
+        opacity: 1;
+        /* Ensure text remains visible on hover */
+    }
+}
 
 /******************* Dark Mode ******************/
 
